@@ -5,12 +5,19 @@ const cookieSession=require('cookie-session')
 const dBconfig=require('./config/dataBase')
 require('dotenv').config({path:'config/config.env'});
 const passport=require('passport')
+const cors=require('cors')
 const errorMiddleware=require('./middlewares/error');
 const authRoutes=require('./routes/authRoutes')
 //Database
 dBconfig();
+const corsOptions={
+    
+  origin: "http://localhost:3000",
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  credentials:true
 
-
+}
+app.use(cors(corsOptions))
 
 //cookie session for passport
 app.use(
