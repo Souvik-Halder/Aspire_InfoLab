@@ -8,6 +8,7 @@ function App() {
   return (
 <Router>
   <Routes>
+    <Route path='/middlepage' element={<MiddlePage/>}/>
     <Route path='/login' element={<SignIn/>}/>
     <Route path='/register' element={<SignUp/>}/>
     <Route path='/' element={<Home/>}/>
