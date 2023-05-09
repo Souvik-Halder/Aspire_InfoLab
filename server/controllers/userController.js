@@ -66,8 +66,8 @@ exports.getAllPosts=async(req,res,next)=>{
     if(role){
      getAllPost=await createPostModel.find({userRole:role});
     }
-    else{
-        getAllPost=await createPostModel.find();
+    else{ 
+        getAllPost=await createPostModel.find().populate('userId');
     }
 
     res.status(200).json({

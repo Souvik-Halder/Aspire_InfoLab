@@ -24,7 +24,8 @@ export const loadUser=async ()=>api.get('/login/success');
 
 export const logout=async()=>api.post('/logout')
 
+export const uploadPost=async(data)=>api.post('/create-post',data)
 
-
+export const fetchPosts=async(data)=>api.post('/allPosts',data)
 
 export default api;
