@@ -1,10 +1,9 @@
-import './App.css';
-import Home from './Home'
+import MiddlePage from './components/MiddlePage'
 
 function App() {
   return (
     <div >
-     <Home/>
+     <MiddlePage/>
     </div>
   );
 }
