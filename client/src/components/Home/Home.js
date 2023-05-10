@@ -99,7 +99,7 @@ useEffect(() => {
       </div>
      {
       allPosts && allPosts.map(post=>(
-        <div key={post._id} id="huhu" class="w-full flex justify-center bg-gray-200 h-screen items-center">
+        <div key={post._id} id="huhu" class="w-full flex justify-center bg-gray-200 h-screen items-center mb-10">
         <div class="bg-white border   rounded-sm max-w-lg">
           <div class="flex items-center my-2 px-4 py-3">
             <img

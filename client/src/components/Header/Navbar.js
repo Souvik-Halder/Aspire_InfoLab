@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
   return (
@@ -25,9 +26,9 @@ const NavBar = () => {
           </div>
           <ul class="hidden absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 lg:mx-auto lg:flex lg:items-center lg:w-auto lg:space-x-6">
             <li>
-              <a class="text-sm text-gray-400 hover:text-gray-500" href="#">
+              <Link to='/' class="text-sm text-gray-400 hover:text-gray-500" href="#">
                 Home
-              </a>
+              </Link>
             </li>
             <li class="text-gray-300">
               <svg
@@ -45,9 +46,9 @@ const NavBar = () => {
               </svg>
             </li>
             <li>
-              <a class="text-sm text-blue-600 font-bold" href="#">
+              <Link to='/dignosis' class="text-sm text-blue-600 font-bold" href="#">
               Diagonasis
-              </a>
+              </Link>
             </li>
             <li class="text-gray-300">
               <svg
@@ -65,9 +66,9 @@ const NavBar = () => {
               </svg>
             </li>
             <li>
-              <a class="text-sm text-gray-400 hover:text-gray-500" href="#">
+              <Link to='/rooms' class="text-sm text-gray-400 hover:text-gray-500" href="#">
                 Councelling
-              </a>
+              </Link>
             </li>
             <li class="text-gray-300">
               <svg
@@ -105,21 +106,21 @@ const NavBar = () => {
               </svg>
             </li>
             <li>
-              <a class="text-sm text-gray-400 hover:text-gray-500" href="#">
+              <Link to='/connections' class="text-sm text-gray-400 hover:text-gray-500" href="#">
                 Connection
-              </a>
+              </Link>
             </li>
           </ul>
-          <a
+          <Link to='/login'
             class="hidden lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 bg-gray-50 hover:bg-gray-100 text-sm text-gray-900 font-bold  rounded-xl transition duration-200"
             href="#">
             Sign In
-          </a>
-          <a
+          </Link>
+          <Link to='/register'
             class="hidden lg:inline-block py-2 px-6 bg-blue-500 hover:bg-blue-600 text-sm text-white font-bold rounded-xl transition duration-200"
             href="#">
             Sign up
-          </a>
+          </Link>
         </nav>
         <div class="navbar-menu relative z-50 hidden">
           <div class="navbar-backdrop fixed inset-0 bg-gray-800 opacity-25"></div>
