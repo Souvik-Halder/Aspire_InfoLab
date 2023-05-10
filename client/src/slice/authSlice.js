@@ -4,7 +4,8 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState={
   isAuth:false,
-  user:null
+  user:null,
+  isActivate:false
 }
 
 export const authSlice = createSlice({
@@ -21,6 +22,12 @@ export const authSlice = createSlice({
       else{
         state.user=user;
         state.isAuth=true
+      }
+      if(user.role!=='user'){
+        state.isActivate=true
+      }
+      else{
+        state.isActivate=false
       }
       
     },

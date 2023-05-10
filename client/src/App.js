@@ -16,6 +16,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { loadUser } from './https';
 import { setAuth } from './slice/authSlice';
+import MiddlePage from './components/MiddlePage';
 function App() {
   const{user,isAuth}=useSelector(state=>state.auth)
   const dispatch=useDispatch()
@@ -31,27 +32,47 @@ function App() {
 <NavBar/>
   <Routes>
    
-    {/* <Route path='/middlepage' element={<MiddlePage/>}/> */}
-    <Route path='/login' element={<SignIn/>}/>
-    <Route path='/dignosis' element={<Digo/>}/>
-    <Route path='/register' element={<SignUp/>}/>
+    <Route path='/middlepage' element={
+      <SemiprotectedRoute>
+    <MiddlePage/>
+    </SemiprotectedRoute>
+    }/>
+    <Route path='/login' element={<GuestRoute>
+    <SignIn/>
+    </GuestRoute>
+  }
+    />
+    <Route path='/dignosis' element={
+      <SemiprotectedRoute>
+    <Digo/>
+    </SemiprotectedRoute>
+    }/>
+    <Route path='/register' element={
+    <GuestRoute>
+    <SignUp/>
+    </GuestRoute>
+    }/>
     <Route path='/' element={<Home/>}/>
-    <Route path='/connections' element={<Connections/>}/>
+    <Route path='/connections' element={
+      <ProtectedRoute>
+      <Connections/>
+      </ProtectedRoute>
+      }/>
     <Route path='/allrequests' element={<AllRequests/>} />
     <Route path='/acceptedRequests' element={<AcceptedRequests/>}/>
    { isAuth && <Route
           path="/rooms"
           element={
-       
+       <ProtectedRoute>
               <Rooms/>
-           
+              </ProtectedRoute>
           } />}
           <Route
           path="/room/:id"
           element={
-           
+           <ProtectedRoute>
               <Room/>
-          
+              </ProtectedRoute>
           } />
 
     
@@ -60,11 +81,35 @@ function App() {
  
   
   );
-  function ProtectedRoute({  children }) {
-    const {user,isAuth}=useSelector((state)=>state.auth)
+  function GuestRoute({  children }) {
+    const {isAuth}=useSelector((state)=>state.auth)
+    //This is the new protected route configuration
+    if (isAuth) {
+      return <Navigate to="/rooms" replace />
+    }
+    return children
+  }
   
-    if(isAuth && !user.activated){
-      return <Navigate to="/activate" replace/>
+  function SemiprotectedRoute({ children }) {
+    const {user,isAuth,isActivate}=useSelector((state)=>state.auth)
+  
+  
+    if (!isAuth) {
+      return <Navigate to="/" replace />
+    }
+    else if (isAuth && !isActivate) {
+      return children
+    }
+    else {
+      return <Navigate to="/rooms" replace />
+    }
+  }
+  
+  function ProtectedRoute({  children }) {
+    const {user,isAuth,isActivate}=useSelector((state)=>state.auth)
+  
+    if(isAuth && !isActivate){
+      return <Navigate to="/middlepage" replace/>
     }
      if(!isAuth){
       return <Navigate replace to='/'/>

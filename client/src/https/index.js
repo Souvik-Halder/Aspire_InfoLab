@@ -49,4 +49,6 @@ export const getAllRooms=()=>api.get('/rooms');
 
 export const getRoom=(roomId)=>api.get(`/rooms/${roomId}`)
 
+export const updateUserRole=(data)=>api.patch('/update-role',data)
+
 export default api;

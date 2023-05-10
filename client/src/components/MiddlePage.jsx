@@ -11,13 +11,13 @@ const MiddlePage = () => {
             <div className="grid grid-cols-3 gap-x-56">
 
                 <div className="">
-                    <Card name='User' image={user} />
+                    <Card name='User' image={user} value="patient" />
                 </div>
                 <div className="">
-                    <Card name='Doctor' image={doctor}/>
+                    <Card name='Doctor' image={doctor} value="doctor"/>
                 </div>
                 <div className="">
-                    <Card name='Chemist' image={chemist} />
+                    <Card name='Chemist' image={chemist} value="chemist" />
                 </div>
             </div>
         </div>

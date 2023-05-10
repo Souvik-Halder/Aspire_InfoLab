@@ -1,6 +1,17 @@
 import React from 'react'
-
+import { updateUserRole } from '../https'
+import { useDispatch } from 'react-redux'
+import { setAuth } from '../slice/authSlice'
+import { useNavigate } from 'react-router-dom'
 const Card = (props) => {
+	const dispatch=useDispatch()
+	const navigate=useNavigate()
+	async function handleSubmit(role){
+		const {data}=await updateUserRole({role:role})
+		console.log(data)
+		dispatch(setAuth(data));
+		navigate('/')
+	}
   return (
     <div className="flex flex-col justify-center max-w-xs p-6 shadow-md rounded-xl sm:px-12 dark:bg-blue-700 text-gray-100">
 	<img src={props.image} alt="" className="w-32 h-32 mx-auto rounded-full  aspect-square" />
@@ -8,7 +19,7 @@ const Card = (props) => {
 		<div className="my-2 space-y-1">
 			<h2 className="text-xl font-semibold sm:text-2xl">{props.name}</h2>
 		</div>
-        <button type="button" className="px-4 py-2 font-semibold rounded-full bg-white text-slate-900 hover:bg-blue-500 hover:text-white transition ease-in-out">Connect</button>
+        <button type="button" className="px-4 py-2 font-semibold rounded-full bg-white text-slate-900 hover:bg-blue-500 hover:text-white transition ease-in-out" onClick={()=>handleSubmit(props.value)}>Connect</button>
 		<div className="flex justify-center pt-2 space-x-4 align-center">
 			<a rel="noopener noreferrer" href="#" aria-label="GitHub" className="p-2 rounded-md ">
 				<svg viewBox="0 0 496 512" xmlns="http://www.w3.org/2000/svg" className="w-4 h-4 fill-current">
