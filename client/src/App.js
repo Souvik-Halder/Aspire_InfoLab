@@ -9,10 +9,13 @@ import SingleConnection from './components/Connection/SingleConnection';
 import Connections from './components/Connection/Connections';
 import AllRequests from './components/Connection/AllRequests';
 import AcceptedRequests from './components/Connection/AcceptedRequests';
+import NavBar from './components/Header/Navbar';
 function App() {
   return (
 <Router>
+<NavBar/>
   <Routes>
+   
     {/* <Route path='/middlepage' element={<MiddlePage/>}/> */}
     <Route path='/login' element={<SignIn/>}/>
     <Route path='/dignosis' element={<Digo/>}/>
