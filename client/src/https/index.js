@@ -28,4 +28,17 @@ export const uploadPost=async(data)=>api.post('/create-post',data)
 
 export const fetchPosts=async(data)=>api.post('/allPosts',data)
 
+export const getAllDoctorConnection=async()=>api.get('/connections/getDoctors');
+
+export const getAllChemistConnection=async()=>api.get('/connections/getChemists');
+
+export const getAllPatientConnection=async()=>api.get('/connections/getPatients');
+
+export const getAllRequets=async()=>api.get('/allConnection-requests')
+
+export const sendConnectionRequest=async(userId)=>api.post(`/sendRequest/${userId}`)
+
+export const acceptConnection=async(requestId)=>api.post(`/accept-connection/${requestId}`)
+
+export const getAllAcceptedConnections=async()=>api.get('/getaccepted-connection')
 export default api;

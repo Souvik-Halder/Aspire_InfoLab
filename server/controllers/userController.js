@@ -101,7 +101,7 @@ exports.sendConnectionRequest=async(req,res,next)=>{
 
 exports.getAllConnectionRequest=async(req,res,next)=>{
   const userId=req.user._id;
-  const connectionRequests=await ConnectionModel.find({to:userId});
+  const connectionRequests=await ConnectionModel.find({to:userId}).populate('to').populate('from');
   res.status(200).json({
     success:true,
     message:"connection requests fetched successfully",
@@ -135,7 +135,7 @@ exports.acceptConnection=async(req,res,next)=>{
 
 exports.getAcceptedConnection=async(req,res,next)=>{
   const to=req.user._id;
-  const acceptedConnections=await AcceptedConnectionModel.find({to});
+  const acceptedConnections=await AcceptedConnectionModel.find({to}).populate('to').populate('from');
   res.status(200).json({
     success:true,
     message:"Accepted List Fetched successfully",
