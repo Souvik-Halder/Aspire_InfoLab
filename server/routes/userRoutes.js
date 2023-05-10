@@ -15,4 +15,4 @@ router.route('/allConnection-requests').get(isAuth,getAllConnectionRequest)
 router.route('/accept-connection/:requestId').post(isAuth,acceptConnection)
 router.route('/getaccepted-connection').get(isAuth,getAcceptedConnection);
 
-module.exports=router
+module.exports=router 
