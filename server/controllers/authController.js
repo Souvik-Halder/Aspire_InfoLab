@@ -174,16 +174,16 @@ exports.updateUserRole = async (req, res, next) => {
     email: req.body.email,
     role: req.body.role,
   };
-
+ 
   req.user.role=req.body.role;
   const user = await UserModel.findByIdAndUpdate(req.user._id, newUserData, {
     new: true,
     runValidators: true,
     useFindAndModify: false,
   });
-
   res.status(200).json({
     success: true,
     message: "User updated Successfully By admin",
+    user
   });
 };
