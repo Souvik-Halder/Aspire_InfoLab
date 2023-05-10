@@ -3,8 +3,8 @@ import React from "react";
 const NavBar = () => {
   return (
     <>
-      <body class="bg-blue-500">
-        <nav class="relative px-4 py-4 flex justify-between items-center bg-white">
+      <body class="bg-blue-500 top-0">
+        <nav class=" px-4 py-4 flex justify-between items-center bg-white fixed top-0 w-full ">
           <a class="text-3xl font-bold leading-none" href="#">
             <svg class="h-10" alt="logo" viewBox="0 0 10240 10240">
               <path
