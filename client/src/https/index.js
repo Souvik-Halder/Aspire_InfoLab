@@ -41,4 +41,12 @@ export const sendConnectionRequest=async(userId)=>api.post(`/sendRequest/${userI
 export const acceptConnection=async(requestId)=>api.post(`/accept-connection/${requestId}`)
 
 export const getAllAcceptedConnections=async()=>api.get('/getaccepted-connection')
+
+
+export const createRoom=(data)=>api.post('/rooms',data)
+
+export const getAllRooms=()=>api.get('/rooms');
+
+export const getRoom=(roomId)=>api.get(`/rooms/${roomId}`)
+
 export default api;

@@ -1,0 +1,67 @@
+.card {
+    background: #4954cb;
+    padding: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    text-decoration: antiquewhite;
+}
+.card:hover{
+    background: #1523bb;
+}
+
+.speakers {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin: 20px 0;
+    gap: 8px;
+}
+
+.avatars img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 7px solid #071bf7a9;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #1d1d1d;
+}
+
+.avatars img:last-child {
+    top: 20px;
+    left: 20px;
+}
+
+.names {
+    margin-left: 100px;
+    font-weight: 800;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+}
+
+.names span {
+    padding-bottom: 5px;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.peopleCount {
+    text-align: right;
+}
+
+.peopleCount span {
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.singleSpeaker .avatars img {
+    position: initial;
+}
+
+.singleSpeaker .names {
+    margin-left: 20px;
+}
